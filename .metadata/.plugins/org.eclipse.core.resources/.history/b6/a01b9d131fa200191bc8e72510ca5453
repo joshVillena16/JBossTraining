@@ -49,7 +49,7 @@ public class FirstWebService {
 	@GET
 	@Path("/header")
 	public Response headerParam(@HeaderParam("user-agent") String userAgent) {
-		return Response.status(200).entity("HEADER PARAM FUNCTION, userAgent: " +userAgent).build();
+		
 	}
 	
 }

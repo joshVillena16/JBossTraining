@@ -3,7 +3,6 @@ package com.accenture;
 import java.util.List;
 
 import javax.ws.rs.GET;
-import javax.ws.rs.HeaderParam;
 import javax.ws.rs.MatrixParam;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -18,7 +17,6 @@ public class FirstWebService {
 
 	public FirstWebService() {}
 	
-	//http://localhost:8181/cxf/accenture/firstwebservice/popo
 	@GET
 	@Path("/firstwebservice/{name}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -26,7 +24,6 @@ public class FirstWebService {
 		return "This is your first web service, " + name;
 	}
 	
-	//http://localhost:8181/cxf/accenture/query?from=100&to=200&orderBy=Po,Po
 	@GET
 	@Path("/query")
 	public Response queryParam(@Context UriInfo info) {
@@ -44,12 +41,6 @@ public class FirstWebService {
 	@Path("/matrix")
 	public Response matrixParam(@MatrixParam("author") String author, @MatrixParam("country") String country) {
 		return Response.status(200).entity("MATRIX PARAM FUNCTION, author: " +author + ", country: "+ country).build();
-	}
-	
-	@GET
-	@Path("/header")
-	public Response headerParam(@HeaderParam("user-agent") String userAgent) {
-		return Response.status(200).entity("HEADER PARAM FUNCTION, userAgent: " +userAgent).build();
 	}
 	
 }
