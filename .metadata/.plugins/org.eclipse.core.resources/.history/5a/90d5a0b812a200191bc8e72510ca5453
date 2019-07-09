@@ -1,0 +1,8 @@
+package com.accenture;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+
+public class FirstWebService {
+
+}

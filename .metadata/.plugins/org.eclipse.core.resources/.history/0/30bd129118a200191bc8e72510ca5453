@@ -1,0 +1,21 @@
+package com.accenture;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+
+@Path("/")
+public class FirstWebService {
+
+	public FirstWebService() {}
+	
+	@GET
+	@Path("/firstwebservice")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String first() {
+		return "This is your first web service.";
+	}
+	
+	
+	
+}

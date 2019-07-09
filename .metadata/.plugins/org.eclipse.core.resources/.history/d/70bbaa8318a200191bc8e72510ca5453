@@ -1,0 +1,16 @@
+package com.accenture;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+
+@Path("/")
+public class FirstWebService {
+
+	public FirstWebService() {}
+	
+	@GET
+	@Path("/firstwebservice")
+	public String first() {
+		return "This is your first web service.";
+	}
+}
