@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jaxrs="http://cxf.apache.org/jaxrs" xmlns:camel="http://camel.apache.org/schema/spring"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd      
+        http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+        http://cxf.apache.org/transports/http/configuration http://cxf.apache.org/schemas/configuration/http-conf.xsd
+        http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
+        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+	<cxf:rsServer address="http://localhost:8181/cxf/accenture"
+        id="restService" serviceClass="com.javainuse.beans.EmployeeServiceResource"/>
+
+	<jaxrs:server id="vlService" address="/accenture">
+		<jaxrs:serviceBeans>
+			<ref bean="leaveService" />
+			<ref bean="leaveChecker"/>
+			<ref bean="leaveComparer"/>
+		</jaxrs:serviceBeans>
+	</jaxrs:server>
+
+	<bean id="leaveService" class="com.accenture.vacationLoggingSystem.VacationFiler" />
+	
+	<bean id="leaveChecker" class="com.accenture.vacationBalanceChecker.CheckBalance" />
+	
+	<bean id="leaveComparer" class="com.accenture.vacationDatesInBetween.CompareDates" />
+	
+	<camelContext id="camelId" xmlns="http://camel.apache.org/schema/spring">
+        <route id="kawanoroute">
+            <from id="_from1" uri="cxfrs://bean://leaveService"/>
+            <process id="_process1" ref="processor"/>
+            <to id="_to1" pattern="InOnly" uri="cxfrs://bean://leaveChecker"/>
+        </route>
+    </camelContext>
+    
+</beans>

@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1562659061893
+Bnd-LastModified: 1562729752716
 Build-Jdk: 1.8.0_211
 Built-By: joshua.m.a.villena
 Bundle-ManifestVersion: 2
@@ -7,8 +7,10 @@ Bundle-Name: first-webservice
 Bundle-SymbolicName: com.accenture.first-webservice
 Bundle-Version: 0.0.1.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
-Export-Package: com.accenture;uses:="javax.ws.rs,javax.ws.rs.core";versi
- on="0.0.1.SNAPSHOT"
+Export-Package: com.accenture;uses:="com.accenture.model,javax.ws.rs,jav
+ ax.ws.rs.core";version="0.0.1.SNAPSHOT",com.accenture.model;uses:="java
+ x.xml.bind.annotation";version="0.0.1.SNAPSHOT",com.accenture.repositor
+ y;uses:="com.accenture.model";version="0.0.1.SNAPSHOT"
 Import-Package: javax.ws.rs;version="[2.0,3)",javax.ws.rs.core;version="
- [2.0,3)"
+ [2.0,3)",javax.xml.bind.annotation
 Tool: Bnd-2.1.0.20130426-122213

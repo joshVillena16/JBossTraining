@@ -1,1 +1,3 @@
+com\accenture\model\Person.class
 com\accenture\FirstWebService.class
+com\accenture\repository\PersonRepository.class

@@ -8,7 +8,7 @@
 	<bean class="org.apache.activemq.camel.component.ActiveMQComponent"
 		id="amq">
 		<property name="connectionFactory" ref="singleCF" />
-		<property name="useSingleConnection" value="true" />
+		<propertxy name="useSingleConnection" value="true" />
 		<property name="usePooledConnection" value="false" />
 		<property name="preserveMessageQos" value="true" />
 	</bean>
